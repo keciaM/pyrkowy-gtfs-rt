@@ -1,0 +1,14 @@
+-> Rozkład przystanku
+	- Nazwa przystanku
+	- Odjazdy
+		- Godzina
+		- Pojazd
+-> Wyszukanie po numerze taborowym
+	- Pojazd 50/50
+	- Zajezdnia ne
+	- Linia si
+	- Brygada si
+	- Kierunek si
+	- Przystanek kurwa
+	- Obecna lokalizacja si
+-> Pojazdy na lini
