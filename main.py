@@ -1,7 +1,7 @@
 import requests
 import json
 import csv
-from staticmap import StaticMap, CircleMarker
+from staticmap import StaticMap, IconMarker
 from PIL import Image
 from google.transit import gtfs_realtime_pb2
 from data.constants import *
@@ -82,10 +82,13 @@ def get_bus_by_vid(vid):
     
     return latitude, longitude
 
-latitude, longitude = get_bus_by_vid('1772')
+latitude, longitude = get_bus_by_vid('1856')
 
 m = StaticMap(512, 256)
-marker = CircleMarker((latitude, longitude), 'red', 12)
-m.add_marker(marker)
-image = m.render(zoom=15)
+icon = Image.open('data/img/poznan/bus.png')
+icon_resized = icon.resize((46, 46), Image.Resampling.LANCZOS)
+icon_resized.save('data/img/poznan/bus_res.png')
+icon_marker = IconMarker((longitude, latitude), 'data/img/poznan/bus_res.png', 22, 22)  
+m.add_marker(icon_marker)
+image = m.render(zoom=16)
 image.save('map.png')
